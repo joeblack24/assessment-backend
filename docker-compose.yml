@@ -13,7 +13,6 @@ services:
       POSTGRES_PASSWORD: testpassword
       POSTGRES_DB: bb_db
   app:
-    restart: always
     depends_on:
       - postgres
     build:

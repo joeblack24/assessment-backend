@@ -18,9 +18,17 @@ FROM python:3.9.5-alpine AS alpine_base
     ;
 
   RUN pip install \
-    --no-cache-dir \
+    #--no-cache-dir \
     --disable-pip-version-check \
     pipenv \
+    ;
+
+  RUN pip install \
+    django-extensions \
+    psycopg2 \
+    jsonschema
+  RUN pip install \
+    djangorestframework \
     ;
 
   USER app
@@ -34,3 +42,9 @@ FROM alpine_base as pip_base
 FROM pip_base as dev
   RUN pipenv sync -d \
     && pipenv --clear
+  RUN pip install \
+    django-extensions \
+    psycopg2 \
+    jsonschema
+  RUN pip install \
+    djangorestframework

@@ -7,6 +7,8 @@ name = "pypi"
 django = "*"
 django-extensions = "*"
 psycopg2 = "*"
+jsonschema = "*"
+djangorestframework = "*"
 
 [dev-packages]
 werkzeug = "*"
